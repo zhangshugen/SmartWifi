@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.smartwifi.part.commonpage.viewmodel.TaskListViewModel" />
+
+        <variable
+            name="itemData"
+            type="com.smartwifi.bean.TaskListBean" />
+
+        <variable
+            name="itemPosition"
+            type="java.lang.Integer" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:onClick="@{()->presenter.onItemClick(itemPosition,itemData)}"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingBottom="16dp">
+        <!--    -->
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_toLeftOf="@+id/iv"
+                android:gravity="left"
+                android:text="@{itemData.BAK0}"
+                android:textColor="@color/bleak_33"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="s" />
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                android:onClick="@{()->presenter.openItem(itemData,itemPosition)}"
+                android:paddingBottom="20dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="6dp"
+                android:src="@mipmap/ic_task_list_open" />
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/rl_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_title"
+                android:layout_marginLeft="16dp">
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/end_time+itemData.PLANDATE}"
+                    android:textColor="@{itemData.isOpen?@color/bleak_33:@color/gray_99}"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_task_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_time"
+                    android:text="@{@string/left_curves+itemData.STATUSNAME+@string/right_curves}"
+
+                    android:textSize="13sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_time"
+                android:visibility="@{itemData.isOpen?View.VISIBLE:View.GONE}">
+
+                <TextView
+                    android:id="@+id/tv_company"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@{@string/accountability+itemData.BAK9}"
+                    android:textColor="@color/bleak_33"
+                    android:textSize="12sp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_company"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="100dp"
+                    android:layout_marginTop="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/tv_company"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/shape_button_radius_3dp_blue42"
+                    android:gravity="right"
+                    android:onClick="@{()->presenter.requestApproval(itemData,itemPosition)}"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="5dp"
+                    android:text="请求审批"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@color/gray_ee" />
+
+    </LinearLayout>
+</layout>

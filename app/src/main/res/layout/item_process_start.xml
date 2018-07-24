@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="itemData"
+            type="com.smartwifi.bean.ProcessStartBean" />
+
+        <variable
+            name="presenter"
+            type="com.smartwifi.part.process.fragment.ProcessStartFragment" />
+
+        <variable
+            name="itemPosition"
+            type="Integer" />
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->presenter.onItemClick(itemPosition,itemData)}"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="12dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp">
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:text="@{itemData.name}"
+                android:textColor="#ff333333"
+                android:textSize="16dp"
+                tools:text="阿非常三段发多少发多少阿斯蒂芬" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv"
+                android:layout_marginTop="16dp"
+                android:text="@{itemData.desc}"
+                android:textColor="#ff333333"
+                android:textSize="16dp"
+                android:visibility="@{TextUtils.isEmpty(itemData.desc)?View.GONE:View.VISIBLE}"
+                tools:text="阿非常三段发多少发多少阿斯蒂芬" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:drawablePadding="20dp"
+                android:drawableRight="@mipmap/ic_right_arrow"
+                android:onClick="@{()->presenter.sure(itemData)}"
+                android:text="确认"
+                android:textColor="#ff2f78c3"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffd9d7d7"
+
+            />
+
+
+    </LinearLayout>
+</layout>

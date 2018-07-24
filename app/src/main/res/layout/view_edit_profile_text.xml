@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="view"
+            type="com.smartwifi.view.EditProfileTextView" />
+
+        <variable
+            name="info"
+            type="com.smartwifi.bean.CommonEditProfileBean" />
+
+        <import type="com.smartwifi.constant.Constant" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->view.onViewClick()}"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/tv"
+                style="@style/Edit_Profile_TextView"
+                android:text="@{info.TEXT_PROMPT}" />
+
+            <EditText
+                android:id="@+id/et_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv"
+                android:layout_marginRight="15dp"
+                android:background="@null"
+                android:focusable="@{info.DISPLAY_FLAG.equals(Constant.TYPE_FALSE)}"
+                android:onClick="@{()->view.onViewClick()}"
+                android:hint="@{info.BAK2}"
+                android:paddingBottom="7dp"
+                android:paddingTop="7dp"
+                android:text="@{info.dEFFIELD}"
+                android:textColor="@color/bleak_33"
+                android:textColorHint="@color/gray_99"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray_ee" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.smartwifi.widget.databindingadapter.BaseBindingItemPresenter" />
+
+        <variable
+            name="itemData"
+            type="com.smartwifi.bean.ProfileSelectionStaffLocalBean" />
+
+        <variable
+            name="itemPosition"
+            type="java.lang.Integer" />
+
+        <import type="android.text.TextUtils" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->presenter.onItemClick(itemPosition,itemData)}"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_ee" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@{!TextUtils.isEmpty(itemData.companyName)?itemData.companyName: itemData.job+itemData.userName}"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</layout>

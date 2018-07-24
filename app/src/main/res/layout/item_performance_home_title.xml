@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.smartwifi.widget.databindingadapter.BaseBindingItemPresenter" />
+
+        <variable
+            name="itemData"
+            type="com.smartwifi.bean.PerformanceHomeBean" />
+
+        <variable
+            name="itemPosition"
+            type="java.lang.Integer" />
+
+    </data>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_ee">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="13dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="13dp"
+            android:text="@{itemData.name}"
+            android:textColor="#ff666666"
+            android:textSize="14sp" />
+    </LinearLayout>
+</layout>

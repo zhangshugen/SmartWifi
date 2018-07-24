@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="info"
+            type="com.smartwifi.bean.CommonEditProfileBean" />
+
+        <variable
+            name="view"
+            type="com.smartwifi.view.EditProfileChooseView" />
+
+        <import type="com.smartwifi.constant.Constant" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="@{info.DISPLAY_FLAG.equals(Constant.TYPE_FALSE)}"
+            android:onClick="@{()->view.clickChooseView()}"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp">
+
+            <TextView
+                style="@style/Edit_Profile_TextView"
+                android:text="@{info.TEXT_PROMPT}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="15dp"
+                android:text="@{info.dEFFIELD}" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+
+            android:background="@color/gray_ee" />
+    </LinearLayout>
+</layout>

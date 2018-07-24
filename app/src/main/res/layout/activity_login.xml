@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="imageData"
+            type="String"/>
+
+        <variable
+            name="presenter"
+            type="com.smartwifi.part.user.activity.LoginActivity" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/login_background">
+        <!-- padding 内边距  layout_margin 外边距
+                android:layout_alignParentTop 布局的位置是否处于顶部 -->
+        <RelativeLayout
+            android:id="@+id/login_div"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_margin="15dp"
+            >
+
+            <EditText
+                android:id="@+id/edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:maxLength="11"
+                android:numeric="integer"
+                android:hint="请输入手机号"
+                android:textColorHint="#fff"
+                android:gravity="center"
+                android:layout_marginTop="160dp"
+                android:textColor="#fff"
+                />
+            <!-- 登录button -->
+            <Button
+                android:id="@+id/button"
+                android:layout_width="230dp"
+                android:layout_height="44dp"
+                android:layout_below="@id/edit"
+                android:layout_centerHorizontal="true"
+                android:background="#ff00a1e9"
+                android:layout_marginTop="100dp"
+                android:text="立即登录"
+                android:onClick="@{()->presenter.onButtonClick()}"
+                android:textSize="18sp"
+                android:textColor="#222222"
+                />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            >
+
+            <TextView android:id="@+id/register_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="您还可以选择以下方式登录"
+                android:textColor="#ffbdbdbd"
+                android:textSize="14sp"
+                android:gravity="center"
+                />
+            <ImageView
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="40dp"
+                android:src="@mipmap/wechat"
+                android:layout_marginLeft="100dp"
+                android:textColor="#ffbdbdbd"
+                android:onClick="@{()->presenter.onIvWXClick()}"
+                />
+            <ImageView
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="40dp"
+                android:src="@mipmap/qq"
+                android:layout_marginRight="100dp"
+                android:layout_alignParentRight="true"
+                android:textColor="#fff"
+                android:onClick="@{()->presenter.onIvQQClick()}"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

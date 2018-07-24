@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="presenter"
+            type="com.smartwifi.widget.databindingadapter.BaseBindingItemPresenter" />
+
+        <variable
+            name="itemData"
+            type="com.smartwifi.bean.FootRefreshBean" />
+
+        <variable
+            name="itemPosition"
+            type="java.lang.Integer" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/rl_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:visibility="@{itemData.status==0?View.VISIBLE:View.GONE}"
+            android:id="@+id/page_loading"
+            layout="@layout/pager_loading"
+            />
+        <include
+            android:visibility="@{itemData.status==2?View.VISIBLE:View.GONE}"
+            android:id="@+id/page_error"
+            layout="@layout/pager_error"
+           />
+        <include
+            android:visibility="@{itemData.status==1?View.VISIBLE:View.GONE}"
+            android:id="@+id/page_empty"
+            layout="@layout/pager_empty"
+          />
+        <View
+            android:visibility="@{itemData.status==4?View.VISIBLE:View.GONE}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             />
+    </LinearLayout>
+</layout>

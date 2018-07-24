@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.smartwifi.view.EditProfileChooseFileView" />
+
+        <variable
+            name="itemData"
+            type="com.smartwifi.bean.ProfileFileBean" />
+
+        <variable
+            name="itemPosition"
+            type="java.lang.Integer" />
+
+    </data>
+
+    <LinearLayout
+        android:onClick="@{()->presenter.onItemClick(itemPosition,itemData)}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@{itemData.fileName}"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+
+                />
+
+            <ImageView
+                android:id="@+id/del"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp"
+                android:onClick="@{()->presenter.deleteFile(itemData,itemPosition)}"
+                android:scaleType="centerInside"
+                android:src="@mipmap/icon_file_del" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="15dp"
+            android:background="@color/gray_ee" />
+    </LinearLayout>
+</layout>

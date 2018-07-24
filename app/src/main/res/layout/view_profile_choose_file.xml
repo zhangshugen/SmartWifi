@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="info"
+            type="com.smartwifi.bean.CommonEditProfileBean" />
+
+        <variable
+            name="view"
+            type="com.smartwifi.view.EditProfileChooseFileView" />
+
+        <import type="com.smartwifi.constant.Constant" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->view.clickChooseView()}"
+
+        android:orientation="vertical">
+        <!--  android:enabled="@{info.DISPLAY_FLAG.equals(Constant.TYPE_FALSE)}"-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp">
+
+            <TextView
+                style="@style/Edit_Profile_TextView"
+                android:text="@{info.TEXT_PROMPT}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:text="点击选择文件" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="15dp"
+            android:paddingBottom="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_ee" />
+    </LinearLayout>
+</layout>

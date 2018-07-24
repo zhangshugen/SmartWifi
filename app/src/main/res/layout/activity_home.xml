@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="text"
+            type="String"></variable>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fitsSystemWindows="true"
+
+        android:orientation="vertical">
+
+     <!--   <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/blue_3b"
+           >
+
+            <TextView
+
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="无线城市"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+        </android.support.v7.widget.Toolbar>-->
+
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <com.zsq.library.BottomMenuLayout
+            android:id="@+id/bbl"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="#F3F5F4"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.zsq.library.BottomMenuItem
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:iconNormal="@mipmap/ic_home_normal"
+                app:iconSelected="@mipmap/ic_home_select"
+                app:itemText="推荐"
+                app:itemTextSize="12sp"
+                app:itemMarginTop="3dp"
+                app:isShowBadgeHint="true"
+                app:openTouchBg="true"
+                app:textColorNormal="@color/gray_99"
+                app:textColorSelected="@color/blue_2f"
+                app:touchDrawable="@drawable/selector_bg" />
+
+            <com.zsq.library.BottomMenuItem
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:iconNormal="@mipmap/ic_home_normal"
+                app:iconSelected="@mipmap/ic_home_select"
+                app:itemText="wifi检测"
+                app:itemTextSize="12sp"
+                app:itemMarginTop="3dp"
+                app:isShowBadgeHint="true"
+                app:openTouchBg="true"
+                app:textColorNormal="@color/gray_99"
+                app:textColorSelected="@color/blue_2f"
+                app:touchDrawable="@drawable/selector_bg" />
+
+            <com.zsq.library.BottomMenuItem
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:iconNormal="@mipmap/ic_home_normal"
+                app:iconSelected="@mipmap/ic_home_select"
+                app:itemText="企业广场"
+                app:itemTextSize="12sp"
+                app:itemMarginTop="3dp"
+                app:isShowBadgeHint="true"
+                app:openTouchBg="true"
+                app:textColorNormal="@color/gray_99"
+                app:textColorSelected="@color/blue_2f"
+                app:touchDrawable="@drawable/selector_bg" />
+
+
+            <com.zsq.library.BottomMenuItem
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:itemMarginTop="3dp"
+                app:iconNormal="@mipmap/ic_mine_normal"
+                app:iconSelected="@mipmap/ic_mine_select"
+                app:isShowBadgeHint="true"
+                app:itemText="我的"
+                app:itemTextSize="12sp"
+                app:openTouchBg="true"
+                app:textColorNormal="@color/gray_99"
+                app:textColorSelected="@color/blue_2f"
+                app:touchDrawable="@drawable/selector_bg" />
+
+
+        </com.zsq.library.BottomMenuLayout>
+    </LinearLayout>
+</layout>

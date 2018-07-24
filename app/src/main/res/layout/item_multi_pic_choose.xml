@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="presenter"
+            type="com.smartwifi.view.MultiPicChooseView" />
+
+        <variable
+            name="itemData"
+            type="com.smartwifi.bean.MultiPicChooseBean" />
+
+        <variable
+            name="itemPosition"
+            type="java.lang.Integer" />
+
+    </data>
+    <!--    android:visibility="@{itemData.type==0?View.GONE:View.VISIBLE}"-->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@color/transparent"
+            android:orientation="vertical"
+            android:visibility="@{itemData.type==1?View.VISIBLE:View.GONE}">
+
+            <RelativeLayout
+                android:id="@+id/rr_gad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/img_photo"
+                    android:layout_width="76dp"
+                    android:layout_height="76dp"
+                    android:onClick="@{(v)->presenter.onShowImage(v,itemPosition,itemData)}"
+                    android:scaleType="centerCrop"
+                    android:transitionName="showanim"
+                    app:onDisplayImage="@{itemData.imgUrlString}" />
+                <!-- -->
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/img_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/rr_gad"
+                android:layout_alignTop="@+id/rr_gad"
+                android:background="@mipmap/ic_fb_sctp"
+                android:onClick="@{()->presenter.deleteImage(itemPosition,itemData)}"
+                android:visibility="@{itemData.isNotShowDelete?View.GONE:View.VISIBLE}" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_frame_gray_primary"
+            android:onClick="@{()->presenter.onItemClick(itemPosition,itemData)}"
+            android:padding="5dp"
+            android:visibility='@{itemData.type==0&amp;&amp;itemData.visiable?View.VISIBLE:View.GONE}'>
+
+            <LinearLayout
+                android:id="@+id/btn_add"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerInParent="true"
+                android:clickable="false"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/iv_add"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_photo_camera_black_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="添加图片"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+</layout>
+
