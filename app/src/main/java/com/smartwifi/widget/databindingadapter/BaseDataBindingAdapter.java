@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by Administrator on 2018/7/10 0010.
+ * Created by Administrator on 2018/7/10
  */
 
 public abstract class BaseDataBindingAdapter<T> extends RecyclerView.Adapter<BindingViewHolder> implements RefreshableAdapter<T> {

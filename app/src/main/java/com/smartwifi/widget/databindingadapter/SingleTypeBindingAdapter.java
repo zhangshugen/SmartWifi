@@ -78,6 +78,7 @@ public class SingleTypeBindingAdapter<T> extends BaseDataBindingAdapter<T> {
     }
 
 
+    //获取布局
     @Override
     public int getLayoutRes(int itemViewType) {
         if (itemViewType == headSingleKey)
@@ -88,6 +89,7 @@ public class SingleTypeBindingAdapter<T> extends BaseDataBindingAdapter<T> {
         return mLayoutRes;
     }
 
+    //是尾部视图
     @Override
     public boolean isFooterView(int position) {
         if (footSingleKey <= 0) {
@@ -99,6 +101,7 @@ public class SingleTypeBindingAdapter<T> extends BaseDataBindingAdapter<T> {
         return position >= count && position <= getItemCount();
     }
 
+    //是头部视图
     @Override
     protected boolean isHeaderView(int position) {
         if (headSingleKey <= 0) {
@@ -112,6 +115,7 @@ public class SingleTypeBindingAdapter<T> extends BaseDataBindingAdapter<T> {
 
     }
 
+    //获得头部尾部总个数
     @Override
     protected int getHeadAndItemCount() {
         int count = 0;
@@ -120,6 +124,7 @@ public class SingleTypeBindingAdapter<T> extends BaseDataBindingAdapter<T> {
         return count;
     }
 
+    //获得头部个数
     @Override
     public int getHeadCount() {
         int count = 0;
@@ -129,6 +134,7 @@ public class SingleTypeBindingAdapter<T> extends BaseDataBindingAdapter<T> {
         return count;
     }
 
+    //添加尾部布局
     @Override
     public void addSingleFootConfig(int footKey, int footRes, Object footData) {
         footSingleKey = footKey;
@@ -139,6 +145,7 @@ public class SingleTypeBindingAdapter<T> extends BaseDataBindingAdapter<T> {
         footSingleFootData = footData;
     }
 
+    //添加头部布局
     @Override
     public void addSingleHeaderConfig(int headKey, int headRes, Object headData) {
         headSingleKey = headKey;
@@ -149,6 +156,7 @@ public class SingleTypeBindingAdapter<T> extends BaseDataBindingAdapter<T> {
         headSingleData = headData;
     }
 
+    //获取item个数
     @Override
     public int getItemCount() {
         int size = mData.size();
@@ -158,6 +166,7 @@ public class SingleTypeBindingAdapter<T> extends BaseDataBindingAdapter<T> {
         return size;
     }
 
+    //获取item图标类型
     @Override
     public int getItemViewType(int position) {
         if (isHeaderView(position))

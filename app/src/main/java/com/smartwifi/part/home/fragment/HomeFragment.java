@@ -4,6 +4,7 @@ import android.support.v7.widget.LinearLayoutManager;
 
 import com.smartwifi.R;
 import com.smartwifi.bean.HomeBean;
+import com.smartwifi.bean.HomeHeaderBean;
 import com.smartwifi.databinding.FragmentHomeBinding;
 import com.smartwifi.part.home.viewmodel.HomeFragmentViewModel;
 import com.smartwifi.widget.databindingadapter.BaseBindingItemPresenter;
@@ -13,7 +14,7 @@ import com.smartwifi.widget.mvvm.view.BaseMVVMFragment;
 
 /**
  * @Author zhangshurong
- * @CreateTime 2018/7/30
+ * @CreateTime 2018/7/14
  * @Describe
  */
 
@@ -29,6 +30,7 @@ public class HomeFragment extends BaseMVVMFragment<HomeFragmentViewModel, Fragme
         mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(mActivity));
         SingleTypeBindingAdapter adapter = new SingleTypeBindingAdapter(mActivity, HomeBean.getHomeBeanList(), R.layout.item_home);
         adapter.setItemPresenter(this);
+        adapter.addSingleHeaderConfig(0,R.layout.item_home_header, HomeHeaderBean.getHomeHeaderBeanList());
         mBinding.recyclerView.setAdapter(adapter);
     }
 
@@ -66,4 +68,6 @@ public class HomeFragment extends BaseMVVMFragment<HomeFragmentViewModel, Fragme
                 break;*/
         }
     }
+
+
 }
