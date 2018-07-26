@@ -30,7 +30,7 @@ public class HomeFragment extends BaseMVVMFragment<HomeFragmentViewModel, Fragme
         mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(mActivity));
         SingleTypeBindingAdapter adapter = new SingleTypeBindingAdapter(mActivity, HomeBean.getHomeBeanList(), R.layout.item_home);
         adapter.setItemPresenter(this);
-        adapter.addSingleHeaderConfig(0,R.layout.item_home_header, HomeHeaderBean.getHomeHeaderBeanList());
+        adapter.addSingleHeaderConfig(1,R.layout.item_home_header, HomeHeaderBean.getHomeHeaderBeanList());
         mBinding.recyclerView.setAdapter(adapter);
     }
 

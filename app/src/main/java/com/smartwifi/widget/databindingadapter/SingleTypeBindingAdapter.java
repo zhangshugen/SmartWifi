@@ -106,7 +106,7 @@ public class SingleTypeBindingAdapter<T> extends BaseDataBindingAdapter<T> {
     protected boolean isHeaderView(int position) {
         if (headSingleKey <= 0) {
             return false;
-        } else if (footSingleFootRes <= 0) {
+        } else if (headSingleFootRes <= 0) {
             return false;
         } else if (headSingleData == null) {
             return false;
