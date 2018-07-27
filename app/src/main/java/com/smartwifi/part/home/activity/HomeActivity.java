@@ -11,6 +11,7 @@ import com.smartwifi.part.MainViewModel;
 import com.smartwifi.part.home.fragment.CompanyFragment;
 import com.smartwifi.part.home.fragment.HomeFragment;
 import com.smartwifi.part.home.fragment.MineFragment;
+import com.smartwifi.part.home.fragment.WifiFragment;
 import com.smartwifi.widget.mvvm.factory.CreateViewModel;
 import com.smartwifi.widget.mvvm.view.BaseMVVMActivity;
 
@@ -39,11 +40,11 @@ public class HomeActivity extends BaseMVVMActivity<MainViewModel, ActivityHomeBi
 
         //底部条目
         HomeFragment homeFragment = new HomeFragment();
-        MineFragment mineFragment = new MineFragment();
+        WifiFragment wifiFragment = new WifiFragment();
         CompanyFragment companyFragments = new CompanyFragment();
         MineFragment mineFragments = new MineFragment();
         mFragmentList.add(homeFragment);
-        mFragmentList.add(mineFragment);
+        mFragmentList.add(wifiFragment);
         mFragmentList.add(companyFragments);
         mFragmentList.add(mineFragments);
 
@@ -66,5 +67,10 @@ public class HomeActivity extends BaseMVVMActivity<MainViewModel, ActivityHomeBi
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    }
+
+    @Override
+    public int getStateBarColor() {
+        return R.color.blue_1e;
     }
 }

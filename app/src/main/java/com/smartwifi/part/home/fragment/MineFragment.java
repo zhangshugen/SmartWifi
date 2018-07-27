@@ -13,7 +13,7 @@ import com.smartwifi.widget.mvvm.view.BaseMVVMFragment;
  * @Describe
  */
 
-@CreateViewModel(HomeFragmentViewModel.class)
+@CreateViewModel(MineFragmentViewModel.class)
 public class MineFragment extends BaseMVVMFragment<MineFragmentViewModel,FragmentMineBinding> {
     @Override
     public int getLayoutId() {
