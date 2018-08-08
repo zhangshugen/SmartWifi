@@ -129,6 +129,29 @@ public class GlideImageLoader {
                 .into(imageView);
     }
 
+   /* public static void onDisplayImage(final ImageView context, @NotNull final String imageView, @NotNull int _bitmap) {
+
+        if (imageView == null) {
+            return;
+        }
+        Glide.with(context.getContext()).load(imageView)//
+                .placeholder(_bitmap)//
+                .error(_bitmap)//
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .into(context);
+    }*/
+    public static void onDisplayImage(final ImageView imageView, String resource, int placeholder) {
+        if (imageView == null) {
+            return;
+        }
+        Glide.with(imageView.getContext()).load(resource)//
+                .placeholder(placeholder)//
+                .error(placeholder)//
+                .thumbnail(0.55f)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)//
+                .into(imageView);
+    }
+
     public static void onDisplayImage(final Context context, @NotNull final ImageView imageView, @NotNull Bitmap _bitmap) {
 
         if (imageView == null) {

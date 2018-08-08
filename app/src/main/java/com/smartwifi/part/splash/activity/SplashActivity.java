@@ -21,8 +21,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_welcome);
 
-        //禁止横屏
-        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         UIUtils.postDelayed(new Runnable() {
             @Override
             public void run() {

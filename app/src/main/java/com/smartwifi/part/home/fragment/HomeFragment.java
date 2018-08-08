@@ -1,13 +1,18 @@
 package com.smartwifi.part.home.fragment;
 
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.smartwifi.R;
 import com.smartwifi.bean.HomeBean;
 import com.smartwifi.bean.HomeHeaderBean;
+import com.smartwifi.bean.ItemHomeHeaderBean;
 import com.smartwifi.databinding.FragmentHomeBinding;
+import com.smartwifi.databinding.ItemHomeHeaderBinding;
 import com.smartwifi.part.home.viewmodel.HomeFragmentViewModel;
 import com.smartwifi.widget.databindingadapter.BaseBindingItemPresenter;
+import com.smartwifi.widget.databindingadapter.BaseDataBindingDecorator;
+import com.smartwifi.widget.databindingadapter.BindingViewHolder;
 import com.smartwifi.widget.databindingadapter.SingleTypeBindingAdapter;
 import com.smartwifi.widget.mvvm.factory.CreateViewModel;
 import com.smartwifi.widget.mvvm.view.BaseMVVMFragment;
@@ -31,6 +36,16 @@ public class HomeFragment extends BaseMVVMFragment<HomeFragmentViewModel, Fragme
         SingleTypeBindingAdapter adapter = new SingleTypeBindingAdapter(mActivity, HomeBean.getHomeBeanList(), R.layout.item_home);
         adapter.setItemPresenter(this);
         adapter.addSingleHeaderConfig(1,R.layout.item_home_header, HomeHeaderBean.getHomeHeaderBeanList());
+        adapter.setHeadDecorator(new BaseDataBindingDecorator<HomeHeaderBean>() {
+            @Override
+            public void decorator(BindingViewHolder holder, int position, int viewType, HomeHeaderBean data) {
+                ItemHomeHeaderBinding binding =   (ItemHomeHeaderBinding) holder.getBinding();
+                binding.recyclerViewHead.setLayoutManager(new GridLayoutManager(getContext(), 5));
+                SingleTypeBindingAdapter adapter = new SingleTypeBindingAdapter(mActivity, ItemHomeHeaderBean.getItemHomeHeaderBeanList(), R.layout.item_home_header_service);
+                binding.recyclerViewHead.setAdapter(adapter);
+
+            }
+        });
         mBinding.recyclerView.setAdapter(adapter);
     }
 

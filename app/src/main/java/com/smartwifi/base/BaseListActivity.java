@@ -6,6 +6,7 @@ import com.smartwifi.bean.TestBean;
 import com.smartwifi.databinding.ActivityBaseListBinding;
 import com.smartwifi.view.recyclerView.RefreshRecyclerNetConfig;
 import com.smartwifi.view.recyclerView.pagemanagestrategy.PageManageBuilder;
+import com.smartwifi.widget.databindingadapter.MultiTypeBindingAdapter;
 import com.smartwifi.widget.databindingadapter.SingleTypeBindingAdapter;
 import com.smartwifi.widget.mvvm.view.BaseMVVMActivity;
 import com.smartwifi.widget.mvvm.view.BaseMVVMView;
@@ -22,7 +23,7 @@ import java.util.List;
 
 public abstract class BaseListActivity< V extends BaseMVVMView, VM extends BaseViewModel > extends BaseMVVMActivity< VM, ActivityBaseListBinding> {
 
-    protected SingleTypeBindingAdapter mAdapter;
+    protected MultiTypeBindingAdapter mAdapter;
 
     @Override
     public int getLayoutId() {
@@ -42,7 +43,7 @@ public abstract class BaseListActivity< V extends BaseMVVMView, VM extends BaseV
         list.add(bean);
         list.add(bean);
         list.add(bean);
-        mAdapter = new SingleTypeBindingAdapter(this, list, getItemLayout());
+        mAdapter = new MultiTypeBindingAdapter(this, list, getItemLayout());
         PageManageBuilder builder = new PageManageBuilder(this)
                 .setAdapter(mAdapter);
         getBuilder(builder);

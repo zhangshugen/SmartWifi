@@ -1,13 +1,16 @@
 package com.smartwifi.utils;
 
 import android.databinding.BindingAdapter;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.widget.ImageView;
 
 import com.smartwifi.R;
 import com.smartwifi.bean.GuideImage;
+import com.smartwifi.manager.BannerManager;
 import com.smartwifi.widget.giide.GlideImageLoader;
+import com.smartwifi.widget.loopviewpage.AutoSwitchView;
 
 import java.io.File;
 
@@ -55,5 +58,10 @@ public class DataBindingUtils {
         } else {
             GlideImageLoader.displayRound(iv.getContext(), iv, R.mipmap.ic_launcher_round);
         }
+    }
+
+    @BindingAdapter("initBanner")
+    public static void initBanner(AutoSwitchView view, int type) {
+        BannerManager.getInstance().setBannerDataWithType((AppCompatActivity) view.getContext(), type, view);
     }
 }

@@ -43,6 +43,11 @@
             android:layout_height="0dp"
             android:layout_weight="1"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#ffd9d7d7" />
+
         <com.zsq.library.BottomMenuLayout
             android:id="@+id/bbl"
             android:layout_width="match_parent"
@@ -56,8 +61,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:iconNormal="@mipmap/ic_home_normal"
-                app:iconSelected="@mipmap/ic_home_select"
+                app:iconNormal="@mipmap/home_default"
+                app:iconSelected="@mipmap/home"
                 app:itemText="推荐"
                 app:itemTextSize="12sp"
                 app:itemMarginTop="3dp"
@@ -71,8 +76,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:iconNormal="@mipmap/ic_home_normal"
-                app:iconSelected="@mipmap/ic_home_select"
+                app:iconNormal="@mipmap/detection_default"
+                app:iconSelected="@mipmap/detection"
                 app:itemText="wifi检测"
                 app:itemTextSize="12sp"
                 app:itemMarginTop="3dp"
@@ -86,8 +91,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:iconNormal="@mipmap/ic_home_normal"
-                app:iconSelected="@mipmap/ic_home_select"
+                app:iconNormal="@mipmap/square_default"
+                app:iconSelected="@mipmap/square"
                 app:itemText="企业广场"
                 app:itemTextSize="12sp"
                 app:itemMarginTop="3dp"
@@ -103,8 +108,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:itemMarginTop="3dp"
-                app:iconNormal="@mipmap/ic_mine_normal"
-                app:iconSelected="@mipmap/ic_mine_select"
+                app:iconNormal="@mipmap/mine_default"
+                app:iconSelected="@mipmap/mine"
                 app:isShowBadgeHint="true"
                 app:itemText="我的"
                 app:itemTextSize="12sp"

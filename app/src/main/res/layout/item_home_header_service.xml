@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.smartwifi.widget.databindingadapter.BaseBindingItemPresenter" />
+
+        <variable
+            name="itemData"
+            type="com.smartwifi.bean.ItemHomeHeaderBean" />
+
+        <variable
+            name="itemPosition"
+            type="java.lang.Integer" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:onClick="@{()->presenter.onItemClick(itemPosition,itemData)}"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:onImageRes="@{itemData.url}"
+            tools:src="@mipmap/tab_home_selected" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:maxLines="1"
+            android:text="@{itemData.name}"
+            android:textColor="#ff333333"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+</layout>

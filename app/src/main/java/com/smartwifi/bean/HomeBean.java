@@ -14,26 +14,25 @@ import java.util.List;
 public class HomeBean {
 
     public String name;
-    public int unReadCount;
+    public String title;
     public int url;
 
-    public HomeBean(String name, int url, int unRead) {
+    public HomeBean(String name, int url,String title) {
         this.name = name;
         this.url = url;
-        this.unReadCount = unRead;
+        this.title=title;
+
     }
 
     public static List<HomeBean> getHomeBeanList() {
         List<HomeBean> beans = new ArrayList<>();
 
-        beans.add(new HomeBean("测试",R.mipmap.ic_neikong,0));
-        beans.add(new HomeBean("测试内控任务", R.mipmap.ic_neikong, 0));
-        beans.add(new HomeBean("测试发起监督", R.mipmap.ic_faqi, 0));
-//        beans.add(new HomeBean("巡查监督", R.mipmap.ic_xuncha,1));
-        beans.add(new HomeBean("测试质安监督", R.mipmap.ic_zhian, 3));
-        //     beans.add(new HomeBean("整改记录", R.mipmap.ic_zhenggai, 1));
-        beans.add(new HomeBean("测试负面清单", R.mipmap.ic_fumian, 2));
-        beans.add(new HomeBean("测试履约监督", R.mipmap.ic_lvyue, 5));
+        beans.add(new HomeBean("长沙高新区官网", R.mipmap.test,"中方保持中立？若美国反击朝鲜导弹打击是标题是标题是标题是标题…中方保持中立？若美国反击朝鲜导弹打击是标题是标题是标题是标题…"));
+        beans.add(new HomeBean("长沙高新区官网", R.mipmap.test,"若美国反击朝鲜导弹打击是标题是标题是标题是标题"));
+        beans.add(new HomeBean("长沙高新区官网", R.mipmap.test,"中方保持中立"));
+        beans.add(new HomeBean("长沙高新区官网", R.mipmap.test,"美国反击朝鲜导弹打击是"));
+        beans.add(new HomeBean("长沙高新区官网", R.mipmap.test,"若美国反击朝鲜导弹打击是标题是标题是"));
+        beans.add(new HomeBean("长沙高新区官网", R.mipmap.test,"标题"));
         return beans;
     }
 
