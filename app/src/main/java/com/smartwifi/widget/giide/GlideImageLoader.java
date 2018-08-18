@@ -129,17 +129,6 @@ public class GlideImageLoader {
                 .into(imageView);
     }
 
-   /* public static void onDisplayImage(final ImageView context, @NotNull final String imageView, @NotNull int _bitmap) {
-
-        if (imageView == null) {
-            return;
-        }
-        Glide.with(context.getContext()).load(imageView)//
-                .placeholder(_bitmap)//
-                .error(_bitmap)//
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .into(context);
-    }*/
     public static void onDisplayImage(final ImageView imageView, String resource, int placeholder) {
         if (imageView == null) {
             return;

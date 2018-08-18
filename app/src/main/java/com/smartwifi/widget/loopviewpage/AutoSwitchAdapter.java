@@ -46,7 +46,7 @@ public class AutoSwitchAdapter extends AutoLoopSwitchBaseAdapter {
         final BannerInfo info = (BannerInfo) getItem(position);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         // 展示数据
-        GlideImageLoader.onDisplayImage(imageView, info.imageUrl, R.drawable.test);
+        GlideImageLoader.onDisplayImage(imageView, info.imgUrl, R.drawable.test);
         return imageView;
     }
 

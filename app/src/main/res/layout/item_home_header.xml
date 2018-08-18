@@ -231,17 +231,23 @@
             android:layout_height="wrap_content" />
 
 
+        <com.smartwifi.widget.loopviewpage.AutoSwitchView
+            android:id="@+id/banner"
+            app:initBanner="@{itemPosition}"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@+id/iv"
+            android:background="#ffffff" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:layout_below="@+id/iv"
             android:background="#fff2f3f5" />
-
-        <com.smartwifi.widget.loopviewpage.AutoSwitchView
-            android:id="@+id/banner"
-            app:initBanner="@{itemPosition}"
-            android:layout_width="match_parent"
-            android:layout_height="126dp"/>
 
     </LinearLayout>
 </layout>

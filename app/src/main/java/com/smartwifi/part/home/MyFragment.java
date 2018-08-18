@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import com.smartwifi.R;
 
 /**
- * @Author zhangshurong
  * @CreateTime 2018/7/28
  * @Describe
  */

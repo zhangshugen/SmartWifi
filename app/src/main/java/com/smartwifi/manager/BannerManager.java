@@ -7,6 +7,7 @@ import com.smartwifi.manager.retrofit.RetrofitJsonManager;
 import com.smartwifi.rxjava.RxJavaHttpHelper;
 import com.smartwifi.widget.loopviewpage.AutoLoopSwitchBaseView;
 import com.smartwifi.widget.loopviewpage.AutoSwitchAdapter;
+import com.smartwifi.widget.retrofithelper.rxschedulers.RxSchedulersHelper;
 import com.smartwifi.widget.retrofithelper.rxsubscriber.CommonObserver;
 
 import java.util.ArrayList;
@@ -41,12 +42,12 @@ public class BannerManager {
 
 
     public void setBannerDataWithType(final AppCompatActivity act, int type, final AutoLoopSwitchBaseView viewPager) {
-        List<BannerInfo> bannerInfos = new ArrayList<>();
+       /* List<BannerInfo> bannerInfos = new ArrayList<>();
         bannerInfos.add(new BannerInfo("http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"));
         bannerInfos.add(new BannerInfo("http://img.zcool.cn/community/011a5859ac137ea8012028a92fc78a.jpg@1280w_1l_2o_100sh.jpg"));
         bannerInfos.add(new BannerInfo("http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"));
         setBannerView(act, viewPager, bannerInfos);
-        if (true) return;
+        if (true) return;*/
         Map<String, Object> map = new HashMap<>();
         map.put("type", type);
         requestData(act, map, viewPager, null);
@@ -66,7 +67,10 @@ public class BannerManager {
     }
 
     private void requestData(final AppCompatActivity act, Map<String, Object> map, final AutoLoopSwitchBaseView viewPager, Observer<List<BannerInfo>> observer) {
-       /* Observable compose = RetrofitJsonManager.getInstance().apiService.getBannerInfo(map).compose(RxJavaHttpHelper.<List<BannerInfo>>applyTransformer());
+        Observable compose = RetrofitJsonManager.getInstance().apiService.getBannerInfo(map)
+                .compose(RxJavaHttpHelper.<List<BannerInfo>>handleResult())
+                // 子线程和主线程切换
+                .compose(RxSchedulersHelper.applyIoTransformer());
         if (observer != null) {
             compose.subscribe(observer);
             return;
@@ -82,12 +86,12 @@ public class BannerManager {
             public void onError(Throwable e) {
                 super.onError(e);
                 List<BannerInfo> infoList = new ArrayList<>();
-                BannerInfo info = new BannerInfo();
-                info.image = "";
+                BannerInfo info = new BannerInfo("");
+                info.imgUrl = "";
                 infoList.add(info);
                 setBannerView(act, viewPager, infoList);
             }
-        });*/
+        });
     }
 
     private void setBannerView(AppCompatActivity act, AutoLoopSwitchBaseView viewPager, List<BannerInfo> bannerInfos) {

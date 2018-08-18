@@ -7,7 +7,6 @@ import com.smartwifi.widget.mvvm.view.BaseMVVMView;
 import com.smartwifi.widget.mvvm.viewmodel.BaseViewModel;
 
 /**
- * @Author zhangshurong
  * @CreateTime 2018/7/9
  * @Describe
  */

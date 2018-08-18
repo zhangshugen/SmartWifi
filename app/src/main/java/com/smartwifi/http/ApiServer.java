@@ -1,5 +1,6 @@
 package com.smartwifi.http;
 
+import com.smartwifi.bean.BannerInfo;
 import com.smartwifi.bean.BaseListData;
 import com.smartwifi.bean.BaseRequestData;
 import com.smartwifi.bean.EditProfileBean;
@@ -8,6 +9,7 @@ import com.smartwifi.bean.GuideImage;
 import com.smartwifi.bean.ProfileSelectionStaffBean;
 import com.smartwifi.bean.TaskListBean;
 
+import java.util.List;
 import java.util.Map;
 
 import io.reactivex.Observable;
@@ -19,6 +21,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
 
 /**
@@ -61,9 +64,11 @@ public interface ApiServer {
     Observable<Object> authWifi(@Url String url);
 
 
-    @GET("/ws/user/login.do")
+    @GET("ws/user/login.do")
     Observable<BaseRequestData<Object>> getThirdLogin(@Query("loginType") String type,@Query("openid") String openid,@Query("nickname")String nickname);
 
+    @GET("ws/wifi/findLbtByOrgId.do?orgId=8a8ab0b246dc81120146dc8180ba0017")
+    Observable<BaseRequestData<List<BannerInfo>>> getBannerInfo(@QueryMap Map<String, Object> map);
 }
 
 
