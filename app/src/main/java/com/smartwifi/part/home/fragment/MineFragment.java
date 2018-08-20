@@ -9,7 +9,6 @@ import com.smartwifi.bean.MineBean;
 import com.smartwifi.databinding.FragmentMineBinding;
 import com.smartwifi.part.home.viewmodel.MineFragmentViewModel;
 import com.smartwifi.part.user.activity.LoginActivity;
-import com.smartwifi.utils.IntentController;
 import com.smartwifi.widget.databindingadapter.BaseBindingItemPresenter;
 import com.smartwifi.widget.databindingadapter.SingleTypeBindingAdapter;
 import com.smartwifi.widget.mvvm.factory.CreateViewModel;

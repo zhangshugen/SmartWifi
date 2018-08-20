@@ -12,7 +12,17 @@
             android:background="#0079ff"
             android:layout_height="160dp">
 
+            <ImageView
+                android:id="@+id/iv_avatars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:src="@mipmap/avatars_default"/>
+
             <TextView
+                android:layout_below="@id/iv_avatars"
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"

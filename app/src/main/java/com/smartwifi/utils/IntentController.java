@@ -24,7 +24,6 @@ import com.smartwifi.widget.BigImagePagerActivity;
 import java.util.ArrayList;
 
 /**
- * @Author zhangshurong
  * @CreateTime 2018/7/9
  * @Describe
  */
@@ -127,11 +126,6 @@ public class IntentController {
         intent.putExtra("phone",phone);
         appCompatActivity.startActivity(intent);
     }
-
-   /* public static void toVerfcationActivity(AppCompatActivity appCompatActivity) {
-        appCompatActivity.startActivity(new Intent(appCompatActivity, VerfcationActivity.class));
-        //appCompatActivity.finish();
-    }*/
 
     public static void toHomeActivity(AppCompatActivity appCompatActivity) {
         appCompatActivity.startActivity(new Intent(appCompatActivity, com.smartwifi.part.home.activity.HomeActivity.class));

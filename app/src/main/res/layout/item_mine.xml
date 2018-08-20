@@ -30,9 +30,9 @@
             android:id="@+id/iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="15dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             app:onImageRes="@{itemData.url}"
             tools:src="@mipmap/tab_home_selected" />
 
@@ -44,7 +44,7 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/iv"
             android:text="@{itemData.name}"
-            android:textColor="#ff333333"
+            android:textColor="#FF333333"
             android:textSize="16sp" />
 
         <ImageView
